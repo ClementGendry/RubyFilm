@@ -1,0 +1,15 @@
+<%= form_tag("/", method: "get") do %>
+  <%= text_field_tag(:query, nil, :placeholder => "test") %>
+  </br><%= submit_tag("Search") %>
+<% end %>
+
+<h1> Test </h1>
+<% if params[:query].present? %>
+    <% @search.each do |result| %>
+        <%= result.title %><br/>
+        <%= result.id %><br/>
+        <% if result.poster_path %>
+            <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
+        <% end %>
+    <% end %>
+<% end %>
