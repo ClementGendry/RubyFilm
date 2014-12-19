@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 #Devise
 gem 'devise'
 
+#themoviedb
+gem 'themoviedb'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
