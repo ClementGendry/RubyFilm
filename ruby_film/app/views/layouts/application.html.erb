@@ -13,14 +13,25 @@
       <h1>RubyFilm</h1>
     </div>
     <nav>
-      <ul>
-        <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="">User Space</a>
-        </li>
-      </ul>
+        <% if user_signed_in? %>    
+            <ul>
+                <li>
+                    <a href="<%  %>">Home</a>
+                </li>
+                <li>
+                    <a href="<%  %>">User Space</a>
+                </li>
+            </ul>
+        <% else %>
+            <ul>
+                <li>
+                    <a href="<%  %>">Se Connecter</a>
+                </li>
+                <li>
+                    <a href="<%  %>">S'enregistrer</a>
+                </li>
+            </ul>
+        <% end %>
     </nav>
 </header>
 

@@ -23,9 +23,11 @@ class FilmsController < ApplicationController
     def search
         @search = Tmdb::Movie.find(params[:query])
     end
-
-    def show
+    
+    def fiche
         #prints views
-        @show = Tmdb::Movie.detail(params[:id])
+        @fiche = Tmdb::Movie.detail(params[:id])
+        @trailer = Tmdb::Movie.trailers(params[:id])
     end
+
 end

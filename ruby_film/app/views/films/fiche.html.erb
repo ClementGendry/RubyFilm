@@ -1,0 +1,11 @@
+<br />
+<%= @fiche.title %><br/>
+<% if @fiche.poster_path %>
+    <%= image_tag( "http://image.tmdb.org/t/p/w154" + @fiche.poster_path) %><br/><br/>
+<% end %>
+
+<% if @trailer %>
+    <% @trailer.youtube.each do |trailer| %>
+    <iframe width="100%" height="270" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+<% end %>
