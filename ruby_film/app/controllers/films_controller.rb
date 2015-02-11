@@ -4,6 +4,8 @@ class FilmsController < ApplicationController
         #prints views
         if params[:query].present?
             @search = Tmdb::Movie.find(params[:query])
+        else
+            @popular = Tmdb::Movie.popular
         end
     end
     
