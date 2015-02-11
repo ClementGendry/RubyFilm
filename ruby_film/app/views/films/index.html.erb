@@ -1,9 +1,27 @@
-<%= form_tag("/", method: "get") do %>
-  <%= text_field_tag(:query, nil, :placeholder => "test") %>
-  </br><%= submit_tag("Search") %>
-<% end %>
+<header>
+    <div id="title_name">
+      <h1>RubyFilm</h1>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="">User Space</a>
+        </li>
+      </ul>
+    </nav>
+</header>
 
-<h1> Test </h1>
+  <div id="searchbar">
+    <%= form_tag("/", method: "get") do %>
+      <%= text_field_tag(:query, nil, :placeholder => "Entrez le nom d'un film") %>
+    </br><%= button_tag("Rechercher") %>
+    <% end %>
+  </div>
+
+<h1> Résultats </h1>
 <% if params[:query].present? %>
     <% @search.each do |result| %>
         <%= result.title %><br/>
