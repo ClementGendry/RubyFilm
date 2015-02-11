@@ -16,16 +16,20 @@
         <% if user_signed_in? %>    
             <ul>
                 <li>
-                    <a href="<%  %>">Espace Utilisateur</a>
+                    <% if user_signed_in? %>
+                        <a href=""><%= @name %></a>
+                    <% end %>
                 </li>
                 <li>
-                    <a href="<%  %>">Se déconnecter</a>
+                    <a href="/users/sign_out">Se déconnecter</a>
                 </li>
             </ul>
         <% else %>
             <ul>
                 <li>
-                    <a href="">Se connecter</a>
+                    <% if controller_name != 'sessions' %>
+                        <%= link_to "Log in", new_user_session_path %><br />
+                    <% end %>
                 </li>
                 <li>
                     <a href="<%=  %>">S'enregistrer</a>
