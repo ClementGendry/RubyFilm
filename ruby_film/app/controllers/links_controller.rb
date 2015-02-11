@@ -6,11 +6,7 @@ class LinksController < ApplicationController
     
     def create
         @link = Link.new()
-        if button == "vu"
-            return 1
-        else
-            return 0
-        end
+
     end
 
 end

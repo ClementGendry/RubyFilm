@@ -8,20 +8,22 @@
 <% if params[:query].present? %>
     <h1> Résultats </h1>
     <% @search.each do |result| %>
-        <a href="/film/<%= result.id %>">
-        <%= result.title %><br/>
-        <% if result.poster_path %>
-            <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
-        <% end %>
+        <a class="links" href="/film/<%= result.id %>">
+            <%= result.title %><br/>
+            <% if result.poster_path %>
+                <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
+            <% end %>
         </a>
     <% end %>
 <% else %>
     <h1> Popular : </h1>
     <% @popular.first(10).each do |result| %>
-        <%= result.title %><br/>
-        <%= result.id %><br/>
-        <% if result.poster_path %>
-            <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
-        <% end %>
+        <a class="links" href="/film/<%= result.id %>">
+            <%= result.title %><br/>
+            <%= result.id %><br/>
+            <% if result.poster_path %>
+                <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
+            <% end %>
+        </a>
     <% end %>
 <% end %>
