@@ -9,9 +9,9 @@ default: &default
   pool: 5
   timeout: 5000
   host: 127.0.0.1
-  port: 8889
+  port: 3306
   username: root
-  password: root
+  password: 
 
 development:
   <<: *default
