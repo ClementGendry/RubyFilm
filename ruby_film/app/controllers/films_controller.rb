@@ -31,5 +31,9 @@ class FilmsController < ApplicationController
         @fiche = Tmdb::Movie.detail(params[:id])
         @trailer = Tmdb::Movie.trailers(params[:id])
     end
+    
+    def user_space
+       
+    end
 
 end

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/search' => 'films#list'
     
     get '/film/:id' => 'films#fiche'
+    
+    get '/user_space' => 'films#user_space'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
