@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
     devise_for :users, :controllers => { registrations: 'registrations' }
     
+    resources :links
+    
     root 'films#index'
     
     get '/search' => 'films#list'
-    
     get '/film/:id' => 'films#fiche'
-    post '/film/:id' => 'films#fiche'
-    post '/film/:id' => 'links#create'
-     get '/user_space' => 'films#user_space'
+    get '/user_space' => 'films#user_space'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

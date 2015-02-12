@@ -5,10 +5,21 @@ class LinksController < ApplicationController
     end
     
     def create
-        @link = Link.new(:user_id => params[:user_id], :film_id => params[:film_id], :status => params[:status])
-        @link.save
-        p @link.errors
-
+        @link = current_user.links.where(:film_id => params[:film_id]).first
+        
+        if @link
+            @link.update_attributes(:status => params[:status])
+            p @link.errors
+            redirect_to :back
+        else
+            @link = current_user.links.build(:film_id => params[:film_id], :status => params[:status])
+            @link.save
+            p @link.errors
+            redirect_to :back
+        end
+        
     end
+    
     helper_method :create
+
 end
