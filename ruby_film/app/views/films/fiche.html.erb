@@ -4,16 +4,24 @@
     <%= image_tag( "http://image.tmdb.org/t/p/w154" + @fiche.poster_path) %><br/><br/>
 <% end %>
 
+<% if current_user %>
+<%= form_tag(:controller => 'links', :action => 'create', :method => "post") do %>
+    <%= hidden_field_tag 'user_id', current_user.id %>
+    <%= hidden_field_tag 'film_id:', @fiche.id %>
+    <%= hidden_field_tag 'status:', "1" %>
+    <%= submit_tag 'Vu', name: 'a_button' %>
+<% end %>
+<% end %>
 <div id="vu">
     <% if current_user %>
         <%= link_to 'Vu',"#", controller: 'links', action: 'create', user_id: current_user.id, film_id: @fiche.id, status: 1, method: :post %>
     <% end %>
 </div>
-
 <% if @fiche.overview %>
     <%= @fiche.overview %><br/>
 <% end %>
 
+<%= @fiche.overview %><br/>
 <% if @trailer %>
     <% @trailer.youtube.first(1).each do |trailer| %>
     <iframe width="100%" height="450" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>

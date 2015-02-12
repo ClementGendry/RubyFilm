@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
     devise_for :users, :controllers => { registrations: 'registrations' }
-
     
     root 'films#index'
     
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
     
     get '/film/:id' => 'films#fiche'
     post '/film/:id' => 'films#fiche'
+    post '/film/:id' => 'links#create'
      get '/user_space' => 'films#user_space'
 
   # The priority is based upon order of creation: first created -> highest priority.
