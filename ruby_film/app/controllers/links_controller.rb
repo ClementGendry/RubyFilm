@@ -5,8 +5,9 @@ class LinksController < ApplicationController
     end
     
     def create
-        @link = Link.new(:user_id => "", :film_id => 1, :status => "")
+        @link = Link.new(:user_id => params[:user_id], :film_id => params[:film_id], :status => params[:status], :created_at => Time.now)
         @link.save
+        redirect_to :controller => "films" , :action => "fiche"
     end
-
+    helper_method :create
 end
