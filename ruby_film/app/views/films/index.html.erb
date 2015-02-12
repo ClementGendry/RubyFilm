@@ -19,8 +19,7 @@
     <h1> Popular : </h1>
     <% @popular.first(10).each do |result| %>
         <a class="links" href="/film/<%= result.id %>">
-            <%= result.title %><br/>
-            <%= result.id %><br/>
+            <%= result.title %><br/></br>
             <% if result.poster_path %>
                 <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
             <% end %>
