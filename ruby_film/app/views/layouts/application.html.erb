@@ -16,23 +16,19 @@
         <% if user_signed_in? %>    
             <ul>
                 <li>
-                    <% if user_signed_in? %>
-                        <a href=""><%= @name %></a>
-                    <% end %>
+                    <a href=""><%= current_user.name %></a>
                 </li>
                 <li>
-                    <a href="/users/sign_out">Se déconnecter</a>
+                    <%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %>
                 </li>
             </ul>
         <% else %>
             <ul>
                 <li>
-                    <% if controller_name != 'sessions' %>
-                        <%= link_to "Log in", new_user_session_path %><br />
-                    <% end %>
+                    <%= link_to "Se connecter", new_user_session_path %><br />
                 </li>
                 <li>
-                    <a href="<%=  %>">S'enregistrer</a>
+                    <%= link_to "S'enregistrer", new_user_registration_path %>
                 </li>
             </ul>
         <% end %>

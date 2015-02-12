@@ -6,7 +6,7 @@ class FilmsController < ApplicationController
             @search = Tmdb::Movie.find(params[:query])
         else
             @popular = Tmdb::Movie.popular
-        end
+        end    
     end
     
     def new

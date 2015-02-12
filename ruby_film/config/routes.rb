@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     root 'films#index'
     
     get '/search' => 'films#list'
+    
     get '/film/:id' => 'films#fiche'
 
   # The priority is based upon order of creation: first created -> highest priority.
