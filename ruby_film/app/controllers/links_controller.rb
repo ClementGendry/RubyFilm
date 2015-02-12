@@ -5,8 +5,8 @@ class LinksController < ApplicationController
     end
     
     def create
-        @link = Link.new()
-
+        @link = Link.new(:user_id => "", :film_id => 1, :status => "")
+        @link.save
     end
 
 end
