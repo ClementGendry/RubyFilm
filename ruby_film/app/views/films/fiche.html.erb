@@ -7,7 +7,7 @@
 
 
     <div id="vu">
-        <% if current_user && @link_film.status == false %>
+        <% if (current_user && @link_film.nil?) || (current_user && @link_film.status == false) %>
             <%= form_tag( links_url, :method => "post" ) do %>
                 <%= hidden_field_tag 'user_id', current_user.id %>
                 <%= hidden_field_tag 'name', @fiche.title %>
@@ -24,15 +24,21 @@
                 <%= submit_tag 'Pas vu', name: 'a_button' %>
             <% end %>
         <% end %>
-    </div>
-
-    <% if @fiche.overview %>
-        <div class="description"><p><%= @fiche.overview %></p></div>
-    <% end %>
-
-    <% if @trailer %>
-        <% @trailer.youtube.first(1).each do |trailer| %>
-        <iframe width="100%" height="450" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>
+    <% elsif current_user && @link_film.status == true %>
+        <%= form_tag( links_url, :method => "post" ) do %>
+            <%= hidden_field_tag 'film_id', @fiche.id %>
+            <%= hidden_field_tag 'status', "0" %>
+            <%= submit_tag 'Pas vu', name: 'a_button' %>
         <% end %>
     <% end %>
 </div>
+
+<% if @fiche.overview %>
+    <%= @fiche.overview %><br/>
+<% end %>
+
+<% if @trailer %>
+    <% @trailer.youtube.first(1).each do |trailer| %>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+<% end %>

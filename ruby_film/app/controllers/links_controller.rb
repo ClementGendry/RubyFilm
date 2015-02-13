@@ -8,7 +8,7 @@ class LinksController < ApplicationController
         @film = Film.where(:film_id => params[:film_id]).first
 
         if !@film
-          @film = Film.create(:film_id => params[:film_id], :name => params[:name], :description => params[:description], :url => params[:url])
+          @film = Film.create(:film_id => params[:film_id], :name => params[:name], :description => params[:description], :url => params[:url],:watch_list => params[:watch_list])
         end
 
         @link = current_user.links.where(:film_id => @film.id).first
