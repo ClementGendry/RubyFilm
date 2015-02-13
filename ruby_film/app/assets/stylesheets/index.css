@@ -86,10 +86,6 @@ ul ul {
     display: none;
 }
 
-ul ul li:hover {
-    background-color: #1abc9c;
-}
-
 ul ul a {
     display: block;
     text-decoration: none;

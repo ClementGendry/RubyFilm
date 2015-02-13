@@ -1,10 +1,9 @@
 <h1>Les films vus :</h1>
 
 <% @all_films.each do |result| %>
-    <a class="links" href="/film/<%= result.id %>">
+    <a class="links" href="/film/<%= result.film_id %>">
       <%= result.name %><br/><br/>
       <% if result.url %>
           <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.url) %><br/><br/>
       <% end %>
-    </a>
 <% end %>

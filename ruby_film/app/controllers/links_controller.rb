@@ -5,22 +5,30 @@ class LinksController < ApplicationController
     end
     
     def create
-        @link = current_user.links.where(:film_id => params[:film_id]).first
-        
+        @film = Film.where(:film_id => params[:film_id]).first
+
+        if !@film
+          @film = Film.create(:film_id => params[:film_id], :name => params[:name], :description => params[:description], :url => params[:url])
+        end
+
+        p @film
+
+        @link = current_user.links.where(:film_id => @film.id).first
+        p @link
+
         if @link && @link.status == true
             @link.update_attributes(:status => 0)
-            p @link.errors
         elsif @link && @link.status == false
             @link.update_attributes(:status => 1)
-            p @link.errors
         else
-            @link = current_user.links.build(:film_id => params[:film_id], :status => params[:status])
-            @film = current_user.films.build(:id => params[:film_id], :name => params[:name], :description => params[:description], :url => params[:url])
+            @link = current_user.links.build(:film_id => @film.id, :status => params[:status])
             @link.save
-            @film.save
-            p @link.errors
         end
+
+        p @link
+
         redirect_to :back
+
     end
     
     helper_method :create
