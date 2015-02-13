@@ -30,7 +30,7 @@ class FilmsController < ApplicationController
         #prints views
         @fiche = Tmdb::Movie.detail(params[:id])
         @trailer = Tmdb::Movie.trailers(params[:id])
-        @link_film = current_user.links.where(:film_id => params[:id]).first
+        @link_film = current_user.links.first
     end
     
     def user_space

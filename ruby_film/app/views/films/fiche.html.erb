@@ -6,7 +6,7 @@
 
 <div id="vu">
     <%= @link_film.inspect %>
-    <% if current_user && @link_film.nil? %>
+    <% if current_user && @link_film.status == false %>
         <%= form_tag( links_url, :method => "post" ) do %>
             <%= hidden_field_tag 'user_id', current_user.id %>
             <%= hidden_field_tag 'name', @fiche.title %>
@@ -16,8 +16,9 @@
             <%= hidden_field_tag 'url', @fiche.poster_path  %>
             <%= submit_tag 'Vu', name: 'a_button' %>
         <% end %>
-    <% elsif current_user && @link_film %>
+    <% elsif current_user && @link_film.status == true %>
         <%= form_tag( links_url, :method => "post" ) do %>
+            <%= hidden_field_tag 'film_id', @fiche.id %>
             <%= hidden_field_tag 'status', "0" %>
             <%= submit_tag 'Pas vu', name: 'a_button' %>
         <% end %>
