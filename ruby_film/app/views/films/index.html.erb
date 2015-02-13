@@ -20,11 +20,13 @@
 <% else %>
     <h1 class="title"> Popular : </h1>
     <% @popular.first(10).each do |result| %>
-        <a class="links" href="/film/<%= result.id %>">
-            <%= result.title %><br/></br>
-            <% if result.poster_path %>
-                <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
-            <% end %>
-        </a>
+        <div class="content">
+            <a class="links" href="/film/<%= result.id %>">
+                <p class="film_title"><%= result.title %></p>
+                <% if result.poster_path %>
+                    <%= image_tag( "http://image.tmdb.org/t/p/w154" + result.poster_path) %><br/><br/>
+                <% end %>
+            </a>
+        </div><br/>
     <% end %>
 <% end %>
