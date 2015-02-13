@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212162727) do
+ActiveRecord::Schema.define(version: 20150213152118) do
 
   create_table "commentaires", force: true do |t|
     t.string   "message"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150212162727) do
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "watch_list"
   end
 
   create_table "users", force: true do |t|
