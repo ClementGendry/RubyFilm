@@ -33,7 +33,7 @@ class FilmsController < ApplicationController
     end
     
     def user_space
-       
+       @all_films = current_user.films
     end
 
 end
