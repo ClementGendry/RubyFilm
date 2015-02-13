@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150212162727) do
 
-  create_table "commentaires", force: true do |t|
-    t.string   "message"
-    t.integer  "id_user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "films", force: true do |t|
     t.string   "name"
     t.text     "description"
