@@ -10,10 +10,52 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial';
+    background-color: #2E2F30;
 }
 
 a {
   text-decoration: none;
+}
+
+.content {
+    background-color: #666666;
+    border-top: 10px solid white;
+    border-bottom: 10px solid white;
+    text-align: justify;
+}
+
+.content:hover p {
+    /*color: #1abc9c;*/
+}
+
+.content input {
+    width: 100%;
+    height: 70px;
+    font-family: 'Pacifico', cursive;
+    background-color: #16a085;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.4s;
+}
+
+.content input:hover {
+    background-color: #1abc9c;
+}
+
+.content img {
+    position: relative;
+    margin: 0 auto;
+    border: 5px solid white;
+}
+
+.title {
+    text-align: center;
+    width: 100%;
+    font-size: 1.5em;
+    font-family: 'Pacifico', cursive;
+    color: white;
 }
 
 header {
@@ -90,4 +132,55 @@ ul ul a {
     display: block;
     text-decoration: none;
     color: white;
+}
+
+form {
+    position: relative;
+    margin-top: 5%;
+}
+
+#searchbar input {
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    text-align: center;
+}
+
+#searchbar input:focus {
+    outline-color: #16a085;
+    box-shadow: none;
+}
+
+::-webkit-input-placeholder {
+    color: #1abc9c;
+    opacity: 0.7;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #1abc9c;
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder {
+    color: #1abc9c;
+    opacity: 0.7;
+}
+
+
+#searchbar button {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-top: 2%;
+    border: none;
+    font-size: 1em;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    background-color: #16a085;
+    transition: 0.4s;
+}
+
+#searchbar button:hover{
+    background-color: #1abc9c;
+    cursor: pointer;
 }

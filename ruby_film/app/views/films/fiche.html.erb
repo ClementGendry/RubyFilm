@@ -1,36 +1,38 @@
 <br />
-<%= @fiche.title %><br/>
-<% if @fiche.poster_path %>
-    <%= image_tag( "http://image.tmdb.org/t/p/w154" + @fiche.poster_path) %><br/><br/>
-<% end %>
+<div class="content">
+    <p class="film_title"><%= @fiche.title %></p>
+    <% if @fiche.poster_path %>
+        <%= image_tag( "http://image.tmdb.org/t/p/w154" + @fiche.poster_path) %><br/><br/>
+    <% end %>
 
-<div id="vu">
-    <%= @link_film.inspect %>
-    <% if current_user && @link_film.status == false %>
-        <%= form_tag( links_url, :method => "post" ) do %>
-            <%= hidden_field_tag 'user_id', current_user.id %>
-            <%= hidden_field_tag 'name', @fiche.title %>
-            <%= hidden_field_tag 'film_id', @fiche.id %>
-            <%= hidden_field_tag 'status', "1" %>
-            <%= hidden_field_tag 'description', @fiche.overview %>
-            <%= hidden_field_tag 'url', @fiche.poster_path  %>
-            <%= submit_tag 'Vu', name: 'a_button' %>
+
+    <div id="vu">
+        <% if current_user && @link_film.status == false %>
+            <%= form_tag( links_url, :method => "post" ) do %>
+                <%= hidden_field_tag 'user_id', current_user.id %>
+                <%= hidden_field_tag 'name', @fiche.title %>
+                <%= hidden_field_tag 'film_id', @fiche.id %>
+                <%= hidden_field_tag 'status', "1" %>
+                <%= hidden_field_tag 'description', @fiche.overview %>
+                <%= hidden_field_tag 'url', @fiche.poster_path  %>
+                <%= submit_tag 'Vu', name: 'a_button' %>
+            <% end %>
+        <% elsif current_user && @link_film.status == true %>
+            <%= form_tag( links_url, :method => "post" ) do %>
+                <%= hidden_field_tag 'film_id', @fiche.id %>
+                <%= hidden_field_tag 'status', "0" %>
+                <%= submit_tag 'Pas vu', name: 'a_button' %>
+            <% end %>
         <% end %>
-    <% elsif current_user && @link_film.status == true %>
-        <%= form_tag( links_url, :method => "post" ) do %>
-            <%= hidden_field_tag 'film_id', @fiche.id %>
-            <%= hidden_field_tag 'status', "0" %>
-            <%= submit_tag 'Pas vu', name: 'a_button' %>
+    </div>
+
+    <% if @fiche.overview %>
+        <div class="description"><p><%= @fiche.overview %></p></div>
+    <% end %>
+
+    <% if @trailer %>
+        <% @trailer.youtube.first(1).each do |trailer| %>
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>
         <% end %>
     <% end %>
 </div>
-
-<% if @fiche.overview %>
-    <%= @fiche.overview %><br/>
-<% end %>
-
-<% if @trailer %>
-    <% @trailer.youtube.first(1).each do |trailer| %>
-    <iframe width="100%" height="450" src="https://www.youtube.com/embed/<%= trailer.source %>" frameborder="0" allowfullscreen></iframe>
-    <% end %>
-<% end %>

@@ -11,10 +11,7 @@ class LinksController < ApplicationController
           @film = Film.create(:film_id => params[:film_id], :name => params[:name], :description => params[:description], :url => params[:url])
         end
 
-        p @film
-
         @link = current_user.links.where(:film_id => @film.id).first
-        p @link
 
         if @link && @link.status == true
             @link.update_attributes(:status => 0)
@@ -25,7 +22,6 @@ class LinksController < ApplicationController
             @link.save
         end
 
-        p @link
 
         redirect_to :back
 
