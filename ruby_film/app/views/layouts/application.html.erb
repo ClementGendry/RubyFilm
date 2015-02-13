@@ -17,6 +17,9 @@
             <ul>
                 <li>
                     <%= link_to current_user.name, user_space_path() %>
+                    <ul>
+                      <%= link_to "A Voir", a_voir_path() %>
+                    </ul>
                 </li>
                 <li>
                     <%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete %>
