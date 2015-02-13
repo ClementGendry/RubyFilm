@@ -14,7 +14,7 @@ class LinksController < ApplicationController
         @link = current_user.links.where(:film_id => @film.id).first
 
         if @link && @link.status == true
-            @link.update_attributes(:status => 0)
+            @link.destroy
         elsif @link && @link.status == false
             @link.update_attributes(:status => 1)
         else

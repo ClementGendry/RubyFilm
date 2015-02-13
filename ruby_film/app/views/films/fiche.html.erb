@@ -24,7 +24,27 @@
                 <%= submit_tag 'Pas vu', name: 'a_button' %>
             <% end %>
         <% end %>
-</div>
+    </div>
+
+    <!--<div id="avoir">-->
+        <!--<% if (current_user && @link_film.nil?) || (current_user && @link_film.status == false) %>-->
+            <!--<%= form_tag( links_url, :method => "post" ) do %>-->
+                <!--<%= hidden_field_tag 'user_id', current_user.id %>-->
+                <!--<%= hidden_field_tag 'name', @fiche.title %>-->
+                <!--<%= hidden_field_tag 'film_id', @fiche.id %>-->
+                <!--<%= hidden_field_tag 'status', "1" %>-->
+                <!--<%= hidden_field_tag 'description', @fiche.overview %>-->
+                <!--<%= hidden_field_tag 'url', @fiche.poster_path  %>-->
+                <!--<%= submit_tag 'A Voir', name: 'a_button' %>-->
+            <!--<% end %>-->
+        <!--<% elsif current_user && @link_film.status == true %>-->
+            <!--<%= form_tag( links_url, :method => "post" ) do %>-->
+                <!--<%= hidden_field_tag 'film_id', @fiche.id %>-->
+                <!--<%= hidden_field_tag 'status', "0" %>-->
+                <!--<%= submit_tag 'Déjà vu', name: 'a_button' %>-->
+            <!--<% end %>-->
+        <!--<% end %>-->
+    <!--</div>-->
 
 <% if @fiche.overview %>
     <div class="description">

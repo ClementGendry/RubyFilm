@@ -24,6 +24,10 @@ class FilmsController < ApplicationController
     
     def search
         @search = Tmdb::Movie.find(params[:query])
+        @film_database = current_user.films.where(:film_id => params[:id]).first
+        if !@film_database.nil?
+          @link_film = Link.where(:user_id => current_user.id, :film_id => @film_database.id ).first
+        end
     end
     
     def fiche
@@ -38,10 +42,6 @@ class FilmsController < ApplicationController
     end
     
     def user_space
-        @all_films = current_user.films
-    end
-
-    def a_voir
         @all_films = current_user.films
     end
 

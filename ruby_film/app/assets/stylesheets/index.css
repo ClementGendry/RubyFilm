@@ -15,6 +15,7 @@ body {
 
 a {
   text-decoration: none;
+    color: white;
 }
 
 .content {
@@ -24,7 +25,7 @@ a {
     text-align: justify;
 }
 
-.content input {
+.content #vu input {
     width: 100%;
     height: 70px;
     font-size: 1.4em;
@@ -36,8 +37,24 @@ a {
     transition: 0.4s;
 }
 
-.content input:hover {
+.content #vu input:hover {
     background-color: #1abc9c;
+}
+
+.content #avoir input {
+    width: 100%;
+    height: 70px;
+    font-size: 1.4em;
+    font-family: 'Pacifico', cursive;
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.4s;
+}
+
+.content #avoir input:hover {
+    background-color: crimson;
 }
 
 .content img {
@@ -180,4 +197,48 @@ form {
 #searchbar button:hover{
     background-color: #1abc9c;
     cursor: pointer;
+}
+
+.field input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 8%;
+}
+
+.field label {
+    font-family: 'Arial';
+    color: white;
+    font-size: 1.3em;
+}
+
+.field em {
+    font-family: 'Arial';
+    color: #1abc9c;
+    font-size: 1em;
+}
+
+.regist_title {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Pacifico', cursive ;
+}
+
+.actions input {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-top: 2%;
+    border: none;
+    font-size: 1.4em;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    background-color: #16a085;
+    transition: 0.4s;
+}
+
+.moreinfo {
+    color: white;
+    text-decoration: none;
+    text-align: center;
 }

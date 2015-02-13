@@ -1,4 +1,4 @@
-<h2>Remplisez les informations suivantes :</h2>
+<h2 class="regist_title">Remplisez les informations suivantes :</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -31,4 +31,3 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
